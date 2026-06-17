@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THINKWAYS｜前三個月執行計畫</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #C0392B;
+    --orange-light: #E8D5D0;
+    --orange-pale: #FDF3F0;
+    --dark: #1A1A1A;
+    --mid: #444444;
+    --gray: #888888;
+    --line: #E5E0DC;
+    --white: #FAFAF8;
+    --comment-yellow: #FFF9E6;
+    --comment-border: #F0C040;
+    --comment-dot: #E6A800;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: rgba(250, 250, 248, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 48px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  /* MODE SWITCHER */
+  .mode-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #F0EDE8;
+    border-radius: 20px;
+    padding: 4px;
+  }
+
+  .mode-btn {
+    border: none;
+    border-radius: 16px;
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--gray);
+  }
+
+  .mode-btn.active {
+    background: white;
+    color: var(--dark);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 140px 48px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--orange); }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .hero-meta-item span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+
+  .terms-table { width: 100%; border-collapse: collapse; }
+  .terms-table tr { border-bottom: 1px solid var(--line); }
+  .terms-table tr:first-child { border-top: 1px solid var(--line); }
+  .terms-table td { padding: 16px 0; vertical-align: top; }
+  .terms-table td:first-child {
+    width: 160px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    padding-right: 24px;
+    padding-top: 18px;
+  }
+  .terms-table td:last-child { font-size: 15px; color: var(--mid); line-height: 1.6; }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .scope-col { background: var(--white); padding: 28px 24px; }
+
+  .scope-col-header {
+    padding: 14px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: white;
+    margin: -28px -24px 20px;
+  }
+
+  .scope-col:nth-child(1) .scope-col-header { background: #4A74C9; }
+  .scope-col:nth-child(2) .scope-col-header { background: #5A9E5A; }
+  .scope-col:nth-child(3) .scope-col-header { background: #888888; }
+
+  .scope-subtitle { font-size: 12px; font-weight: 600; color: var(--dark); margin-bottom: 10px; line-height: 1.4; }
+
+  .scope-list { list-style: none; padding: 0; }
+  .scope-list li {
+    font-size: 13px; color: var(--mid);
+    padding: 5px 0 5px 14px;
+    position: relative; line-height: 1.5;
+  }
+  .scope-list li::before {
+    content: ''; position: absolute; left: 0; top: 12px;
+    width: 5px; height: 1px; background: var(--gray);
+  }
+
+  .month-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 40px; }
+  .month-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px; font-weight: 400;
+    color: var(--orange-light); line-height: 1; flex-shrink: 0;
+  }
+  .month-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 600; color: var(--dark); line-height: 1.1;
+  }
+  .month-subtitle { font-size: 12px; color: var(--gray); margin-top: 4px; letter-spacing: 0.04em; }
+
+  .week-block { margin-bottom: 32px; }
+  .week-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 16px;
+  }
+
+  .task-card {
+    background: var(--orange-pale);
+    border-left: 3px solid var(--orange);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .task-card-title {
+    font-size: 13px; font-weight: 600;
+    color: var(--dark); margin-bottom: 10px; letter-spacing: 0.02em;
+  }
+
+  .task-list { list-style: none; padding: 0; }
+  .task-list li {
+    font-size: 13px; color: var(--mid);
+    padding: 4px 0 4px 16px;
+    position: relative; line-height: 1.55;
+  }
+  .task-list li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--orange); font-size: 11px; top: 5px;
+  }
+
+  .review-block { background: var(--dark); padding: 40px; margin-top: 48px; }
+  .review-block .section-eyebrow { color: var(--orange); }
+  .review-block .section-title { color: white; font-size: 26px; margin-bottom: 24px; }
+  .review-list { list-style: none; padding: 0; }
+  .review-list li {
+    font-size: 14px; color: #AAAAAA;
+    padding: 8px 0 8px 20px;
+    position: relative; border-bottom: 1px solid #333; line-height: 1.6;
+  }
+  .review-list li:last-child { border-bottom: none; }
+  .review-list li::before {
+    content: '◆'; position: absolute; left: 0;
+    color: var(--orange); font-size: 8px; top: 12px;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600; color: var(--dark);
+  }
+  .footer-note { font-size: 12px; color: var(--gray); }
+
+  /* ── COMMENT SYSTEM ── */
+
+  /* commentable blocks get a subtle hover in comment mode */
+  body.comment-mode .commentable {
+    position: relative;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  body.comment-mode .commentable:hover {
+    background: rgba(240, 192, 64, 0.07);
+    outline: 1px dashed var(--comment-border);
+    outline-offset: 4px;
+  }
+
+  body.comment-mode .commentable:hover::after {
+    content: '💬 留言';
+    position: absolute;
+    right: -4px; top: -4px;
+    background: var(--comment-dot);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  /* comment dot indicator */
+  .comment-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; height: 20px;
+    background: var(--comment-dot);
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    position: absolute;
+    right: -10px; top: -10px;
+    cursor: pointer;
+    z-index: 50;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: transform 0.15s;
+  }
+  .comment-dot:hover { transform: scale(1.2); }
+
+  /* comment panel sidebar */
+  #comment-panel {
+    position: fixed;
+    top: 56px; right: 0; bottom: 0;
+    width: 320px;
+    background: white;
+    border-left: 1px solid var(--line);
+    transform: translateX(100%);
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #comment-panel.open { transform: translateX(0); }
+
+  .panel-header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .panel-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600; color: var(--dark);
+  }
+
+  .panel-close {
+    border: none; background: none;
+    font-size: 18px; color: var(--gray);
+    cursor: pointer; padding: 4px; line-height: 1;
+  }
+  .panel-close:hover { color: var(--dark); }
+
+  .panel-section-label {
+    padding: 12px 20px 8px;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gray); background: #F8F6F3;
+    border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+
+  .comments-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  .comment-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+    animation: fadeIn 0.2s ease;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .comment-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .comment-author {
+    font-size: 11px; font-weight: 600;
+    color: var(--orange); letter-spacing: 0.04em;
+  }
+
+  .comment-time { font-size: 10px; color: var(--gray); }
+
+  .comment-section-ref {
+    font-size: 10px; color: var(--gray);
+    margin-bottom: 6px; font-style: italic;
+  }
+
+  .comment-text {
+    font-size: 13px; color: var(--mid);
+    line-height: 1.55;
+  }
+
+  .comment-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .comment-reply-btn, .comment-delete-btn {
+    border: none; background: none;
+    font-size: 11px; cursor: pointer;
+    padding: 2px 0; color: var(--gray);
+    transition: color 0.15s;
+  }
+  .comment-reply-btn:hover { color: var(--orange); }
+  .comment-delete-btn:hover { color: #E74C3C; }
+
+  .reply-item {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #F8F6F3;
+    border-left: 2px solid var(--orange-light);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .reply-author {
+    font-size: 10px; font-weight: 600;
+    color: var(--dark); margin-bottom: 3px;
+  }
+
+  .reply-text { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+  .empty-comments {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* comment input area */
+  .comment-input-area {
+    padding: 16px 20px;
+    border-top: 1px solid var(--line);
+    background: #F8F6F3;
+    flex-shrink: 0;
+  }
+
+  .comment-input-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gray); margin-bottom: 8px;
+    display: block;
+  }
+
+  .comment-target-display {
+    font-size: 11px; color: var(--orange);
+    margin-bottom: 8px; font-style: italic;
+    min-height: 16px;
+  }
+
+  .comment-name-input, .comment-textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--dark);
+    background: white;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 8px;
+  }
+
+  .comment-name-input:focus, .comment-textarea:focus {
+    border-color: var(--orange);
+  }
+
+  .comment-textarea { height: 80px; }
+
+  .comment-submit {
+    width: 100%;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .comment-submit:hover { opacity: 0.85; }
+  .comment-submit:disabled { opacity: 0.4; cursor: default; }
+
+  /* reply input */
+  .reply-input-area {
+    margin-top: 8px;
+    padding: 10px;
+    background: #F0EDE8;
+    border-radius: 4px;
+  }
+
+  .reply-textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--dark);
+    background: white;
+    resize: none;
+    outline: none;
+    height: 60px;
+    margin-bottom: 6px;
+  }
+
+  .reply-submit {
+    background: var(--dark); color: white;
+    border: none; border-radius: 4px;
+    padding: 6px 14px; font-size: 11px;
+    font-weight: 600; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .reply-submit:hover { opacity: 0.8; }
+
+  /* floating comment toggle button */
+  #comment-toggle {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 28px;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(192,57,43,0.35);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.04em;
+  }
+  #comment-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(192,57,43,0.4);
+  }
+
+  .comment-count-badge {
+    background: white;
+    color: var(--orange);
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  /* highlighted section when has comments */
+  .has-comments {
+    box-shadow: inset 3px 0 0 var(--comment-dot);
+  }
+
+  @media (max-width: 680px) {
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    main { padding: 0 20px 80px; }
+    .hero-meta { flex-direction: column; gap: 20px; }
+    .scope-grid { grid-template-columns: 1fr; }
+    .month-number { font-size: 48px; }
+    footer { flex-direction: column; gap: 12px; padding: 32px 20px; }
+    #comment-panel { width: 100%; }
+  }
+
+  /* ROLE BLOCKS */
+  .role-block {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .role-block:last-child { border-bottom: none; }
+  .role-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .role-positioning {
+    font-size: 13px;
+    color: var(--orange);
+    margin-bottom: 12px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .role-list {
+    list-style: none;
+    padding: 0;
+  }
+  .role-list li {
+    font-size: 13px;
+    color: var(--mid);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .role-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 11px;
+    top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Thinkways</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#terms">合作條件</a></li>
+      <li><a href="#scope">工作職責</a></li>
+      <li><a href="#month1">第一個月</a></li>
+      <li><a href="#month2">第二個月</a></li>
+      <li><a href="#month3">第三個月</a></li>
+    </ul>
+    <div class="mode-switcher">
+      <button class="mode-btn active" id="btn-view" onclick="setMode('view')">閱覽</button>
+      <button class="mode-btn" id="btn-comment" onclick="setMode('comment')">留言</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Comment Panel -->
+<div id="comment-panel">
+  <div class="panel-header">
+    <h3>意見與留言</h3>
+    <button class="panel-close" onclick="closePanel()">✕</button>
+  </div>
+  <div class="panel-section-label" id="panel-section-label">所有留言</div>
+  <div class="comments-list" id="comments-list"></div>
+  <div class="comment-input-area">
+    <span class="comment-input-label">新增留言</span>
+    <div class="comment-target-display" id="comment-target-display">請在左側點擊段落來選擇留言位置</div>
+    <input class="comment-name-input" id="comment-name" placeholder="你的名字（例如：Jojo）" />
+    <textarea class="comment-textarea" id="comment-textarea" placeholder="輸入你的意見或問題..."></textarea>
+    <button class="comment-submit" id="comment-submit" onclick="submitComment()">送出留言</button>
+  </div>
+</div>
+
+<!-- Floating toggle -->
+<button id="comment-toggle" onclick="togglePanel()">
+  💬 留言
+  <span class="comment-count-badge" id="total-count">0</span>
+</button>
+
+<div class="hero">
+  <div class="hero-eyebrow">前三個月 Onboarding 與執行計畫</div>
+  <h1>Created by thinkers<br>and their <em>soul.</em></h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><label>提案人</label><span>Cindy 黃翊琪</span></div>
+    <div class="hero-meta-item"><label>職稱</label><span>資深營運行銷經理</span></div>
+    <div class="hero-meta-item"><label>合作對象</label><span>THINKWAYS 欣維思品牌顧問</span></div>
+  </div>
+</div>
+
+<main>
+
+  <section id="terms">
+    <div class="section-eyebrow">Collaboration Terms</div>
+    <div class="section-title">合作條件</div>
+    <table class="terms-table">
+      <tr class="commentable" data-section="合作模式">
+        <td>合作模式</td>
+        <td>公司對公司承攬合約（Create by Soul × THINKWAYS），非僱傭關係。</td>
+      </tr>
+      <tr class="commentable" data-section="合作期間">
+        <td>合作期間</td>
+        <td>以長期合作為目標。若任一方欲解除合作，需提早至少一個月告知。</td>
+      </tr>
+      <tr class="commentable" data-section="工作時間">
+        <td>工作時間</td>
+        <td>每週進公司兩天（週一、週三），其餘時間彈性遠端或外出拜訪。</td>
+      </tr>
+      <tr class="commentable" data-section="假期安排">
+        <td>假期安排</td>
+        <td>可自主安排假期，需提前溝通，讓團隊有所準備，並於日後補上缺席的天數。</td>
+      </tr>
+      <tr class="commentable" data-section="薪酬模式">
+        <td>薪酬模式</td>
+        <td>月度專案費制，公司對公司開立發票。</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="scope">
+    <div class="section-eyebrow">Scope of Work</div>
+    <div class="section-title">工作職責範疇</div>
+    <div class="scope-grid">
+      <div class="scope-col commentable" data-section="職責：營運相關">
+        <div class="scope-col-header">營運相關</div>
+        <div class="scope-subtitle">THINKWAYS 公司制度落實與對接</div>
+        <ul class="scope-list">
+          <li>人員管理（出缺勤、人資溝通）</li>
+          <li>費用管理（員工、外部廠商）</li>
+          <li>與 JSAdways 對接品牌→行銷專案</li>
+        </ul>
+      </div>
+      <div class="scope-col commentable" data-section="職責：行銷相關">
+        <div class="scope-col-header">行銷相關</div>
+        <div class="scope-subtitle">THINKWAYS 公司業務拓展與開發</div>
+        <ul class="scope-list">
+          <li>FB/IG 社群文章與廣告、電子報</li>
+          <li>各類活動演講等接洽</li>
+          <li>Google 關鍵字優化（廣告/官網）</li>
+          <li>異業合作媒體曝光</li>
+          <li>短影音內容製作</li>
+        </ul>
+      </div>
+      <div class="scope-col commentable" data-section="職責：品牌策略">
+        <div class="scope-col-header">品牌策略</div>
+        <div class="scope-subtitle">品牌專案調研與策略擬定</div>
+        <ul class="scope-list">
+          <li>協助 Jojo 進行客戶提案準備</li>
+          <li>傳承品牌顧問 knowhow</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+
+      <div class="role-block commentable" data-section="職責定位：營運相關">
+        <div class="role-label">營運相關｜公司制度落實與對接</div>
+        <div class="role-positioning">作為 Jojo 的內部後盾，確保公司日常運作順暢，讓她能專注於品牌核心工作。</div>
+        <ul class="role-list">
+          <li>建立出缺勤、費用管理的標準流程（SOP）</li>
+          <li>擔任 THINKWAYS 與 JSAdways 之間的對接窗口，推動品牌→行銷專案的順暢銜接</li>
+        </ul>
+      </div>
+
+      <div class="role-block commentable" data-section="職責定位：行銷相關">
+        <div class="role-label">行銷相關｜業務拓展與對外曝光</div>
+        <div class="role-positioning">讓更多對的人認識 THINKWAYS，並將社群和數位渠道轉化為業務開發的引擎。</div>
+        <ul class="role-list">
+          <li>經營 FB/IG 社群與廣告、Google 關鍵字，提升品牌能見度與受眾精準度</li>
+          <li>定期發送電子報，建立與潛在客戶的深度信任連結</li>
+          <li>主動接洽活動演講與異業合作，擴大 Jojo 和 THINKWAYS 的對外影響力</li>
+        </ul>
+      </div>
+
+      <div class="role-block commentable" data-section="職責定位：品牌策略">
+        <div class="role-label">品牌策略｜傳承與深度參與</div>
+        <div class="role-positioning">近身學習 Jojo 的品牌思維，逐步承接客戶關係與提案能力，為長期傳承做準備。</div>
+        <ul class="role-list">
+          <li>陪同 Jojo 拜訪客戶，觀察並內化她的溝通方式與品牌判斷邏輯</li>
+          <li>協助準備品牌提案素材，從輔助到逐步主導</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="month1">
+    <div class="month-header">
+      <div class="month-number">01</div>
+      <div class="month-title-block">
+        <div class="month-title">熟悉與建立基礎</div>
+        <div class="month-subtitle">Week 1–4｜建立運作根基，確立所有執行方向</div>
+      </div>
+    </div>
+    <div class="week-block">
+      <div class="week-label">Week 1–2｜營運交接優先</div>
+      <div class="task-card commentable" data-section="第一個月：營運交接">
+        <div class="task-card-title">營運交接</div>
+        <ul class="task-list">
+          <li>完成與 Jojo 的工作交接，了解現有制度、流程與人員狀況</li>
+          <li>與 JSAdways 正式對接，建立雙方溝通管道與協作節奏</li>
+          <li>盤點現有廠商合約、費用結構、人資制度</li>
+          <li>建立出缺勤與費用管理的執行 SOP</li>
+        </ul>
+      </div>
+    </div>
+    <div class="week-block">
+      <div class="week-label">Week 3–4｜行銷現況盤點與短影音規劃</div>
+      <div class="task-card commentable" data-section="第一個月：行銷與社群盤點">
+        <div class="task-card-title">行銷與社群盤點</div>
+        <ul class="task-list">
+          <li>審視 Google 關鍵字投放現況，與代理商對齊優化方向，針對品牌更名後排名下滑提出短期修復策略</li>
+          <li>盤點官網內容，評估 GEO（生成式引擎優化）切入點</li>
+          <li>規劃 IG 帳號開通，定義品牌視覺風格和內容方向</li>
+          <li>建立電子報發送流程，完成第一封內容草稿</li>
+        </ul>
+      </div>
+      <div class="task-card commentable" data-section="第一個月：短影音規劃確立">
+        <div class="task-card-title">短影音規劃確立</div>
+        <ul class="task-list">
+          <li>與 Jojo 討論短影音內容方向（客戶互動記錄、幕後花絮、品牌觀點分享）</li>
+          <li>確立影片風格：畫面比例、字幕設計、音樂調性、剪輯節奏</li>
+          <li>確認拍攝流程：誰拍、什麼時機拍、素材如何收集</li>
+          <li>確認剪輯執行者：自製、委外 freelancer 或內部人員</li>
+          <li>規劃第一支影片拍攝時機，目標在第二個月正式發布</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="month2">
+    <div class="month-header">
+      <div class="month-number">02</div>
+      <div class="month-title-block">
+        <div class="month-title">啟動執行</div>
+        <div class="month-subtitle">Week 5–8｜全面開啟社群、廣告與業務開發渠道</div>
+      </div>
+    </div>
+    <div class="week-block">
+      <div class="week-label">社群與廣告</div>
+      <div class="task-card commentable" data-section="第二個月：FB 社群與廣告精準化">
+        <div class="task-card-title">FB 社群與廣告精準化</div>
+        <ul class="task-list">
+          <li>將 FB 發文頻率從每月一篇提升至每月 2–4 篇，內容以品牌案例、觀點文章為主</li>
+          <li>FB 廣告從前台互動型轉為後台精準投放，設定潛在客戶受眾</li>
+          <li>啟動名單型廣告測試，作為業務開發的數位渠道</li>
+        </ul>
+      </div>
+      <div class="task-card commentable" data-section="第二個月：IG 正式開通">
+        <div class="task-card-title">IG 正式開通</div>
+        <ul class="task-list">
+          <li>開通 IG 帳號並開始發文，鎖定受眾：重視設計質感、國際感、年輕新創品牌、二代接班企業主</li>
+          <li>發布第一支短影音（Reels 格式），同步評估是否發布於 FB 和 YouTube Shorts</li>
+        </ul>
+      </div>
+    </div>
+    <div class="week-block">
+      <div class="week-label">業務開發渠道</div>
+      <div class="task-card commentable" data-section="第二個月：異業合作啟動">
+        <div class="task-card-title">異業合作啟動</div>
+        <ul class="task-list">
+          <li>整理異業合作目標名單（動腦、天下、商周、經理人、遠見、LAVIE、設研院等）</li>
+          <li>初步接洽 1–2 個合作對象，評估曝光合作形式（專題報導、聯名活動、podcast 等）</li>
+        </ul>
+      </div>
+      <div class="task-card commentable" data-section="第二個月：電子報首發">
+        <div class="task-card-title">電子報首發</div>
+        <ul class="task-list">
+          <li>發出第一封電子報，建立固定每月一次的發送節奏</li>
+          <li>內容以品牌觀點或案例分享為主，強化私域流量經營</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="month3">
+    <div class="month-header">
+      <div class="month-number">03</div>
+      <div class="month-title-block">
+        <div class="month-title">優化與評估</div>
+        <div class="month-subtitle">Week 9–12｜檢視成效，確立長期合作架構</div>
+      </div>
+    </div>
+    <div class="week-block">
+      <div class="week-label">數據檢視與優化</div>
+      <div class="task-card commentable" data-section="第三個月：數位行銷成效評估">
+        <div class="task-card-title">數位行銷成效評估</div>
+        <ul class="task-list">
+          <li>檢視 Google 關鍵字投放成效，與代理商討論預算分配優化方向</li>
+          <li>檢視 FB 廣告名單型投放成效，評估是否成為穩定業務開發渠道</li>
+          <li>IG 帳號成長數據檢視，校正內容方向與發文節奏</li>
+          <li>短影音觀看與互動數據分析，確認後續製作方向</li>
+        </ul>
+      </div>
+    </div>
+    <div class="week-block">
+      <div class="week-label">活動演講與異業合作</div>
+      <div class="task-card commentable" data-section="第三個月：對外曝光推進">
+        <div class="task-card-title">對外曝光推進</div>
+        <ul class="task-list">
+          <li>盤點下一季可出席的活動與演講機會，開始接洽 1–2 場</li>
+          <li>協助 Jojo 安排出席，準備相關簡報與溝通素材</li>
+          <li>完成至少一個異業合作案的洽談或簽約</li>
+        </ul>
+      </div>
+    </div>
+    <div class="review-block commentable" data-section="三個月總結與下一階段規劃">
+      <div class="section-eyebrow">Milestone Review</div>
+      <div class="section-title">三個月總結與下一階段規劃</div>
+      <ul class="review-list">
+        <li>與 Jojo 進行第一次正式回顧，檢視合作模式、工作節奏與實際成效</li>
+        <li>評估後續合作形式是否需要調整（工作時間、職責範疇、薪酬結構）</li>
+        <li>共同訂定下一季的目標與重點方向</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-name">Cindy 黃翊琪 × Thinkways</div>
+  <div class="footer-note">本文件供雙方確認合作條件與執行方向</div>
+</footer>
+
+<script>
+  // ── STATE ──
+  let currentMode = 'view';
+  let currentTarget = null;
+  let activeReplyId = null;
+  const STORAGE_KEY = 'thinkways_comments_v1';
+
+  // ── STORAGE ──
+  async function loadComments() {
+    try {
+      const result = await window.storage.get(STORAGE_KEY);
+      return result ? JSON.parse(result.value) : [];
+    } catch { return []; }
+  }
+
+  async function saveComments(comments) {
+    try {
+      await window.storage.set(STORAGE_KEY, JSON.stringify(comments));
+    } catch(e) { console.error('Save failed', e); }
+  }
+
+  // ── MODE ──
+  function setMode(mode) {
+    currentMode = mode;
+    document.body.classList.toggle('comment-mode', mode === 'comment');
+    document.getElementById('btn-view').classList.toggle('active', mode === 'view');
+    document.getElementById('btn-comment').classList.toggle('active', mode === 'comment');
+
+    if (mode === 'comment') {
+      openPanel();
+    } else {
+      closePanel();
+      currentTarget = null;
+      updateTargetDisplay();
+    }
+  }
+
+  // ── PANEL ──
+  function openPanel() {
+    document.getElementById('comment-panel').classList.add('open');
+    document.getElementById('comment-toggle').style.display = 'none';
+    renderComments();
+  }
+
+  function closePanel() {
+    document.getElementById('comment-panel').classList.remove('open');
+    document.getElementById('comment-toggle').style.display = 'flex';
+  }
+
+  function togglePanel() {
+    const panel = document.getElementById('comment-panel');
+    if (panel.classList.contains('open')) {
+      closePanel();
+    } else {
+      openPanel();
+    }
+  }
+
+  // ── TARGET ──
+  function updateTargetDisplay() {
+    const el = document.getElementById('comment-target-display');
+    const submit = document.getElementById('comment-submit');
+    if (currentTarget) {
+      el.textContent = '📍 ' + currentTarget;
+      submit.disabled = false;
+    } else {
+      el.textContent = '請在左側點擊段落來選擇留言位置';
+      submit.disabled = true;
+    }
+  }
+
+  // ── RENDER ──
+  async function renderComments() {
+    const comments = await loadComments();
+    const list = document.getElementById('comments-list');
+    const totalBadge = document.getElementById('total-count');
+    totalBadge.textContent = comments.length;
+
+    // update dots on page
+    document.querySelectorAll('.comment-dot').forEach(d => d.remove());
+    document.querySelectorAll('.commentable').forEach(el => {
+      el.classList.remove('has-comments');
+      const section = el.dataset.section;
+      const sectionComments = comments.filter(c => c.section === section);
+      if (sectionComments.length > 0) {
+        el.classList.add('has-comments');
+        el.style.position = 'relative';
+        const dot = document.createElement('span');
+        dot.className = 'comment-dot';
+        dot.textContent = sectionComments.length;
+        dot.title = section + ' 有 ' + sectionComments.length + ' 則留言';
+        dot.onclick = (e) => {
+          e.stopPropagation();
+          openPanel();
+          document.getElementById('panel-section-label').textContent = section;
+          renderSectionComments(section, comments);
+        };
+        el.appendChild(dot);
+      }
+    });
+
+    if (comments.length === 0) {
+      list.innerHTML = '<div class="empty-comments">目前還沒有留言。<br>切換到「留言」模式，<br>點擊任何段落開始留言。</div>';
+      return;
+    }
+
+    list.innerHTML = '';
+    comments.slice().reverse().forEach(c => {
+      list.appendChild(buildCommentEl(c));
+    });
+  }
+
+  function renderSectionComments(section, comments) {
+    const sectionComments = comments.filter(c => c.section === section);
+    const list = document.getElementById('comments-list');
+    list.innerHTML = '';
+    if (sectionComments.length === 0) {
+      list.innerHTML = '<div class="empty-comments">這個段落還沒有留言。</div>';
+      return;
+    }
+    sectionComments.forEach(c => list.appendChild(buildCommentEl(c)));
+  }
+
+  function buildCommentEl(c) {
+    const div = document.createElement('div');
+    div.className = 'comment-item';
+    div.dataset.id = c.id;
+
+    const repliesHTML = (c.replies || []).map(r => `
+      <div class="reply-item">
+        <div class="reply-author">${escHtml(r.author)}</div>
+        <div class="reply-text">${escHtml(r.text)}</div>
+      </div>
+    `).join('');
+
+    div.innerHTML = `
+      <div class="comment-meta">
+        <span class="comment-author">${escHtml(c.author)}</span>
+        <span class="comment-time">${formatTime(c.time)}</span>
+      </div>
+      <div class="comment-section-ref">↳ ${escHtml(c.section)}</div>
+      <div class="comment-text">${escHtml(c.text)}</div>
+      ${repliesHTML}
+      <div class="comment-actions">
+        <button class="comment-reply-btn" onclick="toggleReply('${c.id}')">回覆</button>
+        <button class="comment-delete-btn" onclick="deleteComment('${c.id}')">刪除</button>
+      </div>
+      <div class="reply-input-area" id="reply-${c.id}" style="display:none;">
+        <textarea class="reply-textarea" placeholder="輸入回覆..." id="reply-text-${c.id}"></textarea>
+        <button class="reply-submit" onclick="submitReply('${c.id}')">送出回覆</button>
+      </div>
+    `;
+    return div;
+  }
+
+  function escHtml(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function formatTime(ts) {
+    const d = new Date(ts);
+    return d.getMonth()+1 + '/' + d.getDate() + ' ' + d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+  }
+
+  // ── ACTIONS ──
+  async function submitComment() {
+    const name = document.getElementById('comment-name').value.trim();
+    const text = document.getElementById('comment-textarea').value.trim();
+    if (!name || !text || !currentTarget) return;
+
+    const comments = await loadComments();
+    comments.push({
+      id: Date.now().toString(),
+      author: name,
+      section: currentTarget,
+      text: text,
+      time: Date.now(),
+      replies: []
+    });
+    await saveComments(comments);
+    document.getElementById('comment-textarea').value = '';
+    renderComments();
+  }
+
+  function toggleReply(id) {
+    const area = document.getElementById('reply-' + id);
+    if (area.style.display === 'none') {
+      if (activeReplyId && activeReplyId !== id) {
+        document.getElementById('reply-' + activeReplyId).style.display = 'none';
+      }
+      area.style.display = 'block';
+      activeReplyId = id;
+    } else {
+      area.style.display = 'none';
+      activeReplyId = null;
+    }
+  }
+
+  async function submitReply(commentId) {
+    const textarea = document.getElementById('reply-text-' + commentId);
+    const text = textarea.value.trim();
+    const name = document.getElementById('comment-name').value.trim() || 'Cindy';
+    if (!text) return;
+
+    const comments = await loadComments();
+    const comment = comments.find(c => c.id === commentId);
+    if (comment) {
+      if (!comment.replies) comment.replies = [];
+      comment.replies.push({ author: name, text, time: Date.now() });
+      await saveComments(comments);
+      renderComments();
+    }
+  }
+
+  async function deleteComment(id) {
+    if (!confirm('確定要刪除這則留言嗎？')) return;
+    let comments = await loadComments();
+    comments = comments.filter(c => c.id !== id);
+    await saveComments(comments);
+    renderComments();
+  }
+
+  // ── CLICK TO SELECT ──
+  document.querySelectorAll('.commentable').forEach(el => {
+    el.addEventListener('click', function(e) {
+      if (currentMode !== 'comment') return;
+      if (e.target.classList.contains('comment-dot')) return;
+      currentTarget = this.dataset.section;
+      updateTargetDisplay();
+      openPanel();
+      document.getElementById('comment-name').focus();
+    });
+  });
+
+  // ── INIT ──
+  document.addEventListener('DOMContentLoaded', () => {
+    renderComments();
+    document.getElementById('comment-submit').disabled = true;
+  });
+
+  window.addEventListener('load', renderComments);
+</script>
+</body>
+</html>
